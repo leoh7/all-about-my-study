@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<curriculum>
+	<subject>
+		<code>A101</code>
+		<title>Java</title>
+		<room>301</room>
+	</subject>
+	<subject>
+		<code>B201</code>
+		<title>JSP</title>
+		<room>201</room>
+	</subject>
+	<subject>
+		<code>B202</code>
+		<title>Ajax</title>
+		<room>202</room>
+	</subject>
+	<subject>
+		<code>C301</code>
+		<title>Spring</title>
+		<room>402</room>
+	</subject>
+</curriculum>

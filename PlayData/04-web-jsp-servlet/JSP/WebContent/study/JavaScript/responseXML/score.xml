@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+	<student>
+		<name>홍길동</name>
+		<kor>70</kor>
+		<eng>75</eng>
+		<mat>60</mat>
+	</student>
+	<student>
+		<name>이순신</name>
+		<kor>92</kor>
+		<eng>88</eng>
+		<mat>90</mat>
+	</student>
+	<student>
+		<name>김유신</name>
+		<kor>79</kor>
+		<eng>85</eng>
+		<mat>87</mat>
+	</student>
+	<student>
+		<name>대조영</name>
+		<kor>77</kor>
+		<eng>75</eng>
+		<mat>80</mat>
+	</student>
+</result>
