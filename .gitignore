@@ -154,3 +154,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/git,java,linux,eclipse,windows
 *.gitignore
+*.DS_Store
