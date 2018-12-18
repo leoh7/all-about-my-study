@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Masking with a PNG</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper {
+	height: 100%;
+	margin: 0;
+}
+
+h1 {
+	font-family: Helvetica, sans-serif;
+	color: white;
+	font-size: 31.5em;
+	margin: 0;
+
+	/* 마스크 효과 적용할 이미지 및 설정값 지정 */
+	-webkit-mask-image: url('img/mask.png');
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-size: 1440px;
+	-webkit-filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, .5));
+
+	/* 텍스트 적용할 animation 지정 */
+	animation: move 3s 1s forwards;
+}
+
+.wrapper {
+	background: url('img/mask-demo-lg.jpg');
+	background-repeat: no-repeat;
+}
+
+/* 텍스트에 적용할 animation 설정 */
+@keyframes move {
+	100% {
+		padding-top: .24em;
+	}
+}
+</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>Poly</h1>
+	</div>
+</body>
+
+</html>

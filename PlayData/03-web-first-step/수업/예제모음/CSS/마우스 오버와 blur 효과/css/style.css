@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+	font-family: 'Nanum Gothic';
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 8em;
+}
+
+nav ul li {
+	margin: 3px;
+}
+
+nav ul li a {
+	display: block;
+	padding: .5em;
+	background-color: #eee;
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+
+	/* 그림자 효과를 이용하여 blur 효과를 적용하기 위한 설정 */
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition: all .5s;
+}
+
+nav ul li a:hover {
+	background-color: #ddd;
+}
+
+nav ul:hover li a:not(:hover) {
+	/* 텍스트 색상을 투명하게 하여 그림자만 남겨 blur 효과 적용 */
+	color: transparent;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}

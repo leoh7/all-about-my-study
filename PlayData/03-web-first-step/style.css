@@ -1,0 +1,127 @@
+body {
+	background-image : url("back-2-colorful-tri2.jpg");
+/*	background-position : center right;	*/
+	/*왼쪽에는 쓰고싶은거, 중간엔 중간, 오른쪽은 가장 일반적인 폰트 */
+	font-family : Arial, Verdana, Sans-serif/*"Times New Roman", Times, serif*/;
+	font-size : 1.3em;
+
+	color : rgba(80, 240, 240, 0.9);
+
+	letter-spacing : 0px;
+	word-spacing : 0px;
+	line-height : 30px;
+	
+	text-align : center;
+}
+
+h2 {
+	text-decoration : underline overline;
+}
+
+p {
+	background-color : rgba(180,255,255, 0.3) /*#85FFFF lightgray*/;
+	font-family : "Comic Sans MS", Verdana, Sans-serif;
+	font-style : italic;
+	font-weight : bold;
+	
+	text-transform : uppercase;
+	text-indent : 10px;
+}
+
+ol {
+	
+}
+
+ul {
+	text-align : center;
+	list-style : square;
+}
+
+
+a:link { 
+	color : rgba(255,100,0,0.6);
+	text-decoration : none;
+}
+
+a:visited{
+	color : rgba(0,171,178,0.6);
+}
+
+
+a:hover, a:active {
+	color : rgba(178,70,0,0.6);
+	background-color : rgba(178,70,0,0.3);
+}
+
+
+/* 태그#아이디.클래스 순서로 써야지만 먹는다 */
+#aaa {
+	color : red;
+}
+
+#aaa.bbb{
+	color : gold;
+}
+
+p.ccc{
+	color : magenta;
+}
+
+.ccc{
+	color : gold;
+}
+
+/* 태그만 적용할 수 있다. 클래스나 id는 띄어쓰기가 안되니깡 */
+/* 둘 다 적용해라*/
+em, span {
+	color : red;
+}
+
+/* 자손선택자 */
+/* em 밑에있는 b 태그, em 밑에 딴게 있어도 되. em이 할아버지든 아버지든 중간에 누가 있어도 되는 것. */
+em b{
+	color : blue;
+}
+
+/* 자식선택자*/
+/* em 바로 밑에 있을 때만 먹는다 */
+em > b{
+	color : gold;
+}
+
+/*div border-width, border-style은 반드시 지정*/
+
+div{
+	border-width : 7px 3px 2px 1px;
+	border-style : none /*groove dotted dashed solid*/;
+	border-color : black green cyan red;
+	/* margin 은 바깥 여백이다 */
+	margin : 10px 40px;
+	/* padding 은 안쪽 여백이다 */
+	padding : 20px 50px;
+	/* width 는 기본 padding 보다 적게 주면 안되 */
+	width : 100px;
+	height : 80px;
+	/* 옆으로 붙었으면 좋겠다 */
+	float : left;
+}
+
+.ddd {
+	border : solid 5px red;
+	clear : left;
+}
+
+
+
+
+
+table {}
+
+tr {		/* 행 */
+} 
+
+th {		/* 열 H */
+}
+
+td {		/* 열 */
+}

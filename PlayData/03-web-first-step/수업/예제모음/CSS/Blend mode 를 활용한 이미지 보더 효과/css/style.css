@@ -1,0 +1,17 @@
+div {
+	width: 80%;
+	max-width: 900px;
+	background-color: #fff;
+	margin: 0 auto;
+	/* 영역속 이미지와 블랜드 효과를 적용할 배경 이미지 - 보더를 꾸민 형태의 이미지 */
+	background-image: url(../img/masque-24.png);
+	/* 영역을 가득체울 이미지와 그에 맞는 사이즈를 위한 배경이미지 사이즈 속성설정 */
+	background-size: cover;
+}
+
+div img {
+	/* 배경과 이미지 사이즈를 맞춤 */
+	width: 100%;
+	/* 배경이미지와 블랜드 효과로 보더효과를 얻음 */
+	mix-blend-mode: screen;
+}

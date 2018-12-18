@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://html5doctor.com/demos/pseudo-classes/example2.html -->
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Example 2</title>
+	<style>
+	li {
+		list-style: none;
+		margin-bottom: 1em;
+	}
+	input {border: 2px solid black;}
+	input:-moz-ui-invalid {box-shadow: none;}
+
+	/* input 의 값이 유효(valid)한지 무효(invalid)한지에 따라 스타일 적용 */
+	/* 값의 유.무효는 input 의 type(여기서는 type 이 email)에 따라 결정 */
+	.submitted input:invalid {background-color: rgba(255, 0, 0, 0.25);}
+	.submitted input:valid {background-color: rgba(0, 255, 0, 0.25);}
+	.submitted input:invalid + label::after {content: ' ⨉';}
+	.submitted input:valid + label::after {content: ' ✓';}
+	</style>
+</head>
+
+<body>
+	<h1>Valid and Invalid Elements</h1>
+	<form action="" name="css3-1">
+		<ul>
+			<li>
+				<input id="email" name="email" type="email">
+				<label for="email">Email</label>
+			</li>
+			<li>
+				<input id="email-confirm" name="email-confirm" type="email">
+				<label for="email-confirm">Confirm email</label>
+			</li>
+			<button formnovalidate="" type="submit">Submit</button>
+			<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				document.forms[0].addEventListener('submit', function(e) {
+					e.preventDefault();
+
+					// submit 버튼 클릭하면 form 요소에 submitted 클래스 추가
+					e.currentTarget.classList.add('submitted');
+				});
+			});
+			</script>
+		</ul>
+	</form>
+</body>
+
+</html>

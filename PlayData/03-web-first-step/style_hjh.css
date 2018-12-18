@@ -1,0 +1,223 @@
+/* designed By JH */
+/*
+	TO-DO 리스트
+		*해결:	1.테이블이 중앙으로 안간다
+		*해결:	2.본래 테이블 background-color 는 white로, hover 시 색상, 혹은 이미지 출현
+				3. - 테이블 hover 시 이미지 에니메이션 구현
+		*해결:	4.테이블 border-color 가 안 먹는다
+			
+		*미해결:	5.table에 hover 되었을 때, body background의 opacity를 조정하고 싶었으나 마음처럼 되지 않는다...
+					하단 table:hover body{} 따위가 그것임
+				6.1.body 의 background 에니메이션 계속 흐름, table:hover 시 opacity 조정
+		*해결:	6.2.table 의 background 에니메이션 계속 흐름, table:hover 시 opacity 조정
+		7.input 클래스에서 .input:checked{} 에 에니메이션을 주고 싶다... 만 
+*/
+
+body {
+	text-align : center;
+	background-image: url(back-2-colorful-tri2.jpg);
+	background-position: 20px 100px;
+	background-repeat: no-repeat;
+	animation: bodymoveimg 55s linear infinite;
+	animation-direction:alternate;
+	overflow: hidden;
+}
+
+/*
+table:hover body{
+	background-color: rgba(0,0,0, 1);
+}
+*/
+
+h1,h2,h3,h4,h5,h6 {
+	color: white;
+}
+
+a {
+	
+}
+ 
+a:hover {
+
+}
+
+
+/* 본래 테이블 color white -> hover 시, 다른 이펙트 출현 */
+table {
+	text-align : "center";
+	position: relative;
+	left: 37%;
+
+	border : 0px solid #444444;
+	border-radius: 20px 50px;
+
+	background-color : #E4E4E4;
+	width: 400px;
+	height: 300px;
+
+	background-image: url(back-2-colorful-tri2.jpg);
+	background-position: 20px 100px;
+	opacity : 0.65;
+	background-repeat: no-repeat;
+	animation: tableimg 38s linear infinite;
+	animation-direction:alternate;
+	overflow: hidden;
+
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition: all .5s;
+}
+
+table:hover {
+	opacity : 1;
+/*
+	width:  400px;
+	height:  300px;
+	background-image: url(back-2-colorful-tri2.jpg);
+	opacity : 0.85;
+	background-position: 20px 100px;
+	background-repeat: no-repeat;
+	animation: topdownimg 38s linear infinite;
+	overflow: hidden;
+*/
+}
+
+
+
+
+table input {
+	
+}
+
+/* Selects every checked <input> element */
+input:checked{
+	
+}
+
+
+/* 모든 input 클래스 해당*/
+.input {
+	text-transform : lowercase;
+	text-indent : 10px;
+	font-family : "Comic Sans MS", Verdana, Sans-serif; 
+
+}
+
+.input:checked {
+	
+}
+
+.input[type=text], .input[type=password] {
+	
+}
+	/* 버튼 */
+.inputbutton {
+	
+	border-width: 3px;
+	border-style: outset;
+	border-radius: 5px;
+	
+
+
+
+
+}
+
+
+
+
+tr{
+	margin: 3px;
+	padding: .5em;
+	text-decoration: none;
+	color: #000;
+
+	/* 그림자 효과를 이용하여 blur 효과를 적용하기 위한 설정 */
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition: all .5s;
+}
+
+th{
+	border-radius: 5px 5px 5px 5px;
+}
+
+td {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-collapse: collapse;
+	border : 4px;
+	border-style:none;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+
+
+	border-radius: 10px 5px 5px 10px;
+	color: black;
+
+	vertical-align : "center";
+	text-align: "center";
+
+	text-decoration: none;
+	color: #000;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition: all .5s;
+}
+
+
+
+tr:hover {
+	/*blur 효과용*/
+	background-color: #ddd;
+
+	background-image: url(back-2-colorful-tri2.jpg);
+	background-position: 20px 100px;
+	opacity : 0.7;
+	background-repeat: no-repeat;
+	animation: trhoverimg 20s linear infinite;
+	animation-direction:alternate;
+	overflow: hidden;
+}
+
+table:hover tr:not(:hover) {
+	color: transparent;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+
+span {
+	
+}
+
+center {
+	
+}
+
+
+@keyframes tableimg {
+	from {
+		background-position: top left;
+	}
+	to {
+		background-position: bottom right;
+	}
+}
+@keyframes trhoverimg {
+	from{
+		background-position: center center;
+	}
+	to {
+		background-position: right center;
+	}
+}
+@keyframes bodymoveimg{
+	from{
+		background-position: bottom left;
+	}
+	to {
+		background-position: bottom right;
+	}
+}
+@keyframes catmom{
+	transition: all .5s;
+}
+

@@ -1,0 +1,70 @@
+<html>
+
+<head>
+	<title>CSS3 Reflection Effect - Demo</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>Reflection Effect with CSS - Demo</h1>
+		<section id="basic">
+
+			<!-- 이미지 아래에 반사 이미지 생성 -->
+			<div class="reflect below">
+				<h3>Reflect image below</h3>
+				<img src="images/eight_weeks_of_bruce.large.jpg">
+			</div>
+			<pre>
+img {
+	-webkit-box-reflect: below;
+}</pre>
+			
+			<!-- 이미지 아래에 간격을 두고 반사 이미지 생성 -->
+			<div class="reflect offset">
+				<h3>Reflection offset</h3>
+				<img src="images/gabriel_garcia_marquez.large.jpg">
+			</div>
+			<pre>
+img {
+    -webkit-box-reflect: below 10px;
+}
+			</pre>
+		</section>
+
+		<!-- 반사 이미지에 그라데이션 마스크 레이어 효과 적용 -->
+		<section id="masking">
+			<div class="reflect masking">
+				<h3>Masking with gradients</h3>
+				<img src="images/whats_liberal_about_the_liberal_arts.large.jpg">
+			</div>
+			<pre>
+img {
+	-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));
+}</pre>
+			
+			<div class="reflect color-stop">
+				<h3>Using color-stop</h3>
+				<img src="images/everything_matters.large.jpg">
+			</div>
+			<pre>
+img {
+	-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent) , to(rgba(250, 250, 250, 0.1)));
+}</pre>
+		</section>
+
+		<!-- 파이어폭스 브라우저를 위한 reflect 효과 -->
+		<section id="firefox">
+			<div class="reflect moz">
+				<h3>Alternative way for Firefox</h3>
+				<p><em>View this demo in Firefox, otherwise the effect will not be delivered.</em></p>
+				<div id="moz-reflect">
+					<img src="images/strange_bedfellows.large.jpg">
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

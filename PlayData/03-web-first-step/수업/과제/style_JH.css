@@ -1,0 +1,73 @@
+/* designed By JH */
+body {
+	
+}
+
+h1,h2,h3,h4,h5,h6 {
+	 align : "center"
+}
+
+a {
+	
+}
+ 
+a:hover {
+
+}
+
+
+
+table {
+	border : "1em" solid black;
+}
+
+table input {
+	
+}
+
+.input {
+
+}
+
+.input[type=text], .input[type=password] {
+	
+}
+	
+.inputbutton {
+
+}
+
+tr:hover{
+	background-color: #ddd
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px
+
+	background-color: #4caf50
+	color: white;
+
+	vertical-align : "center";
+	text-align: "center";
+}
+
+td {
+	padding-top: 12px;
+	padding-bottom: 12px
+
+	background-color: #4caf50
+	color: white;
+
+	vertical-align : "center";
+	text-align: "center";
+}
+
+span {
+	
+}
+
+center {
+	
+}
+

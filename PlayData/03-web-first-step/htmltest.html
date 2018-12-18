@@ -1,0 +1,107 @@
+<html>
+ <head>
+	<meta charset="utf-8">
+	<title> HTML 연습 </title>
+ </head>
+<!--	 <body bgcolor="aqua">	-->
+		
+	<body background="back-2-colorful-tri2.jpg">
+		
+		<h2 align="center">HTML Test					<br>
+		<a href="hello.html"> hello.html 로 이동</a>		<br>
+		
+		하나&nbsp;&nbsp;&nbsp;둘&nbsp;&nbsp;&nbsp;셋		<br>
+		<p>
+		<font face="궁서체" size="+1" color="aqua">	동해물과 백두산이 마르고 닳도록	</font>	<br> 
+		<font face="돋움체" size="2.1em" color="blue">	하느님이 보우하사 우리나라 만세</font>	<br>
+		<font face="굴림체" size="7px" color="yellow">	무궁화 삼천리 화려강산		</font>	<br>
+		<font face="바탕체" size="2pt" color="white">	대한사람 대한으로 길이 보전하세	<br>
+		</p>
+		</h2>
+		<hr size="11" noshade width="3000px" color="rbg(#D5D5D5)">		
+		나난는나나난나나나나나<center>나난ㄴ나나나나난</center>
+		<pre>
+		하나
+		둘
+		셋
+		</pre>
+		<br>
+		<ul>
+			<li> 사과 </li>
+			<li> 딸기 </li>
+			<li> 배 </li>
+			<li> 고구마 </li>
+			<li> 감자 </li>
+		</ul>
+		<br>
+		<ol>
+			<li> 사과 </li>
+			<li> 딸기 </li>
+			<li> 배 </li>
+			<li> 고구마 </li>
+			<li> 감자 </li>
+		</ol>
+		<dl>
+			<dt>축구</dt>
+			<dd>발로하는 거</dd>
+			<dt>야구</dt>
+			<dd>손으로 하는 거</dd>
+			<dt>농구</dt>
+			<dd>발로하는 거 하 시발</dd>
+		</dl>
+
+		<img src="back-1-water.jpg" width="25%" height="25%" border="0">
+		
+		<table align="center" border="2.7em">
+			<tr align="center">
+				<th width="150" height="50" colspan="3">가</th>
+
+			</tr>
+
+			<tr align="center">
+				<td height="100" valign="top" rowspan="2">겨</td>
+				<td valign="middle">녀</td>
+				<td valign="bottom">뎌</td>
+			</tr>
+
+			<tr align="center">
+				<td height="50">교</td>
+				
+				<td>됴</td>
+			</tr>
+		</table>
+		<br>
+
+<!--		<iframe name="iframe" src="http://www.daum.net" width="100%" height="100%" target="iframe"></iframe>	-->
+
+		<form action="htmltest.html">
+			이름 :	<input type="text" name="name" maxlength="10" size="25"><br>
+
+			비밀번호 :<input type="password" name="passwd"><br>
+
+			성별 :	<input type="radio" name="gender" value="1"> 남자
+					<input type="radio" name="gender" value="2"> 여자 <br>
+
+			취미 :	<input type="checkbox" name="hobby" value="1">독서
+					<input type="checkbox" name="hobby" value="2">운동
+					<input type="checkbox" name="hobby" value="3">게임
+					<input type="checkbox" name="hobby" value="4">여행 <br>
+			자기소개 : <textarea name="intro" rows="10" cols="40"></textarea>
+			주소 :	<select name="address" size="6" multiple>
+						<option value="1"> 서울 </option>
+						<option value="2"> 수원 </option>
+						<option value="3"> 인천 </option>
+						<option value="4"> 안산 </option>
+						<option value="5"> 평택 </option>
+					</select>
+					<br>
+			<input type="submit" value="전송"> <!-- submit 은 action 과 한 쌍이다 submit 은 데이터를 보내는 가장 흔한 방식-->
+			<input type="reset" value="취소">
+			<input type="button" value="이동" onclick="javascript:window.location='http://www.naver.com'">
+			<input type="image" src="img-certi.png" width="60" height="55">
+			<input type="file" value="">
+		</form>
+
+	</font>
+	</body>
+</html>

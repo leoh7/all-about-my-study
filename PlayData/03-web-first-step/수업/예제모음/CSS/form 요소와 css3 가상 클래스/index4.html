@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://html5doctor.com/demos/pseudo-classes/example4.html -->
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Example 4</title>
+	<style>
+	li {
+		list-style: none;
+		margin-bottom: 1em;
+	}
+	label {display: block;}
+	textarea {min-height: 6em;}
+
+	/* 읽기만(read-only) 가능한 경우 */
+	textarea:read-only {
+		border: 2px dashed silver;
+		cursor: default;
+		
+		/* 텍스트 선택 불가능 */
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+
+	/* 읽고 쓰기가(read-write) 가능한 경우 */
+	textarea:read-write {border: 2px solid black;}
+	</style>
+</head>
+
+<body>
+	<form action="" name="css3-1">
+		<ul>
+			<li>
+				<label for="terms">Your message</label>
+				<!-- 읽고 쓰기 가능 - 기본 -->
+				<textarea id="terms" name="terms">These are the terms and conditions. Once upon a time, a mouse, a bird, and a sausage, entered into partnership and set up house together. For a long time all went well; they lived in great comfort, and prospered so far as to be able to add considerably to their stores.</textarea>
+			</li>
+			<li>
+				<label for="terms">Terms and conditions</label>
+				<!-- 읽기만 가능 - readonly 속성 부여 -->
+				<textarea id="terms" name="terms" readonly>These are the terms and conditions. Once upon a time, a mouse, a bird, and a sausage, entered into partnership and set up house together. For a long time all went well; they lived in great comfort, and prospered so far as to be able to add considerably to their stores.</textarea>
+			</li>
+		</ul>
+	</form>
+</body>
+
+</html>
