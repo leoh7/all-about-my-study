@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-4.3.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd">		
+	
+	
+	<context:component-scan base-package="aop">
+		<context:include-filter type="assignable" expression="aop.Instrument"/>
+		<context:include-filter type="assignable" expression="aop.Think"/>
+	</context:component-scan>
+	
+	<bean id="audience" class="aop.Audience"/>
+	<aop:config>
+		<aop:pointcut expression="execution( * aop.Performer.perform(..) )" id="point"/>
+		
+		<aop:aspect ref="audience">
+			<aop:before method="takeSeat" pointcut-ref="point"/>
+			<aop:before method="turnOffPhone" pointcut-ref="point"/>
+			
+			<aop:after-throwing method="refund" pointcut-ref="point"/>
+			<aop:after-returning method="applaud" pointcut-ref="point"/>
+			<aop:after method="audExit" pointcut-ref="point"/>
+			
+			<aop:around method="runtime" pointcut-ref="point"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- 어드바이스로 매개변수 전달 -->
+	<bean id="mindReader" class="aop.MindReader"/>
+	<aop:config>
+		<aop:aspect ref="mindReader">
+			<aop:pointcut id="pointc" expression="execution(void aop.Think.thinking( String )) and args( idea )"/>
+			<aop:before method="intercept" arg-names="idea" pointcut-ref="pointc"/>
+			<aop:after method="answer" arg-names="idea" pointcut-ref="pointc"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
+
+
+
+
+
+
+
+

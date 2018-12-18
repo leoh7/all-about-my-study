@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Board">
+	<select id="getCount" resultType="int">
+		SELECT count(*) FROM board
+	</select>
+	
+	<select id="getArticles" parameterType="java.util.Map" resultType="board.BoardDataBean">
+		select num,writer,email,subject,passwd,
+	    reg_date,ref,re_step,re_level,content,ip,readcount,r 
+	    from (select num,writer,email,subject,passwd,reg_date,ref,re_step
+	    ,re_level,content,ip,readcount,rownum r from 
+	    (select * from board order by ref desc, re_step asc) 
+	    order by ref desc, re_step asc ) where r &gt;= #{start} and r &lt;= #{end}
+	</select>
+	
+	<select id="maxNum" resultType="int">
+		SELECT MAX(num) FROM board
+	</select>
+	
+	<update id="insertReply">
+		UPDATE board SET re_step=re_step+1 WHERE ref = #{ref} and re_step &gt; #{re_step}
+	</update>
+	
+	<insert id="insertArticle" parameterType="board.BoardDataBean">
+		INSERT INTO board(num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, content, ip) 
+		VALUES( board_seq.NEXTVAL, #{writer},#{email, jdbcType=VARCHAR},#{subject},#{passwd},#{reg_date},#{ref},#{re_step},#{re_level},#{content},#{ip})
+	</insert>
+	
+	<select id="getArticle" parameterType="int" resultType="board.BoardDataBean">
+		SELECT * FROM board WHERE num=#{num}
+	</select>
+	
+	<update id="addCount" parameterType="int">
+		UPDATE board SET readcount=readcount+1 WHERE num=#{num}
+	</update>
+	
+	<select id="replyCheck" parameterType="board.BoardDataBean" resultType="int">
+		SELECT count(*) FROM board 
+		WHERE ref=#{ref} 
+		AND re_step=#{re_step}+1 AND re_level>#{re_level}
+	</select>
+	<update id="deleteReply" parameterType="board.BoardDataBean">
+		UPDATE board SET re_step=re_step-1 WHERE ref=#{ref} AND re_step > #{re_step}
+	</update>
+	<delete id="deleteArticle" parameterType="int">
+		DELETE FROM board WHERE num = #{num}
+	</delete>
+	<update id="modifyArticle" parameterType="board.BoardDataBean">
+		UPDATE board SET email=#{email, jdbcType=VARCHAR},
+		subject=#{subject}, content=#{content}, passwd = #{passwd} WHERE num = #{num}
+	</update>
+	
+</mapper>

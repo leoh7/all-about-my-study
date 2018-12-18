@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="User">
+	<insert id="insertUser" parameterType="mybatis.User">
+		insert into dbtest values( #{id}, #{passwd}, #{name}, #{tel}, sysdate )
+	</insert>
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM dbtest where id=#{id}
+	</delete>
+	<select id="getUsers" resultType="mybatis.User">
+		SELECT * FROM dbtest
+	</select>
+	<select id="getCount" resultType="int">
+		SELECT count(*) from dbtest
+	</select>
+	<update id="updateUser" parameterType="mybatis.User">
+		UPDATE dbtest SET passwd=#{passwd}, tel=#{tel} WHERE id=#{id}
+	</update>
+	<select id="getUser" parameterType="String" resultType="mybatis.User">
+		SELECT * FROM dbtest WHERE id=#{id}
+	</select>
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-4.3.xsd">		
+	
+	<bean id="spel" class="wiring.spel.SpEL">
+		<!-- <property name="str1" value="SpEL 테스트"/> -->
+		<property name="str2" value="#{10}"></property>
+		<property name="str3" value="#{10.5}"></property>
+<!-- 		<property name="str4" value="#{ABC}"></property>  이렇게 쓰면 에러 -->
+		<property name="str5" value="#{'ABC'}"></property>
+<!-- 		<property name="str6">
+			#{"ABC"} SpEL 은 이 사이에다가 넣으면 어떻게 해도 에러
+		</property> -->
+		<property name="str7" value="입력받은 값은 #{10} 입니다"/>
+		<property name="str8" value="#{true}"/>
+		<property name="str9" value="#{5+2}"/>
+		<property name="str10" value="#{'5+2'}"/>
+<!-- 		<property name="str11" value="#{'5'+'2'}"/>  	EL태그에서는 문자열 뒤에 붙여라가 없어서 7이 나왔었다 -->
+		<property name="str12" value="#{'5'+2}"/>
+<!-- 		<property name="str13" value="#{'5'-'2'}"/>		이건 에러가 난다 , 자바랑 비슷한 것 -->
+		<property name="str14" value="#{5/2}"/>
+		<property name="str15" value="#{5^2}"/>
+		<property name="str16" value="#{5 > 2}"/>
+		<property name="str17" value="#{5 gt 2}"/>
+		<property name="str18" value="#{5 lt 2}"/>
+		<property name="str19" value="#{5 ge 2}"/>
+		<property name="str20" value="#{5 le 2}"/>
+		<property name="str21" value="#{5 eq 2}"/>
+		<property name="str22" value="#{5 ne 2}"/>
+		<property name="str23" value="#{true and false}"/>
+		<property name="str24" value="#{true or false}"/>
+		<property name="str25" value="#{5%2 eq 0 ? '짝수' : '홀수'}"/>
+		
+		<property name="str26" value="#{singer.getName()}"/> 	<!-- singer.getName() 과 같다 -->
+		<property name="str27" value="#{singer.name != null ? '홍길동' : '김유신'}"/>
+		<!-- <property name="str28" value="#{singer.name ? : '김유신'}"/>	Elvis 연산자 -->
+		
+		<property name="str29" value="#{singer.name.toString()}"/>	<!-- 예외 -->
+		<property name="str30" value="#{singer.name?.toString()}"/>	<!-- Null / null-safe -->
+		
+		<!-- static -->
+		<!-- <property name="str31" value="#{java.lang.Math.PI}"/>	객체를 여기서 만든 상태에서는 호출이 가능, 그러나 이렇게 호출할 순 없음 -->
+		<property name="str31" value="#{T(java.lang.Math).PI}"/>
+		<property name="str32" value="#{T(java.lang.Math).random()*100}"/>
+		<property name="str33" value="r.nextInt(46)"/>
+		
+		<!-- util namespace -->
+		<property name="singers" value="#{singers[0].name}"/>	<!-- 강감찬 -->
+	</bean>
+	<util:list id="singers">
+		<bean class="wiring.spel.Singer" p:name="강감찬" p:age="30"/>
+		<bean class="wiring.spel.Singer" p:name="김유신" p:age="40"/>
+		<bean class="wiring.spel.Singer" p:name="이순신" p:age="50"/>
+	</util:list>
+	
+	<bean id="singer" class="wiring.spel.Singer"/>
+	<bean id="r" class="java.util.Random"/>
+</beans>
+
+
+
+
+
+
+
+

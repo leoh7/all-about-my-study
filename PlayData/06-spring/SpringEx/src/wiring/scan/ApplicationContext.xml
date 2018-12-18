@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-4.3.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd">		
+	
+<!-- 	
+	<context:annotation-config/>
+	<bean name="actor" class="wiring.scan.Actor">
+	</bean>
+		<bean name="student" class="wiring.scan.Student"/>
+		<bean name="teacher" class="wiring.scan.Teacher"/>
+		<bean name="company" class="wiring.scan.Company"/>
+ -->		
+	
+
+	<context:component-scan base-package="wiring.scan">
+		<context:include-filter type="assignable" expression="wiring.scan.Performer"/>
+		<context:include-filter type="assignable" expression="wiring.scan.Role"/>
+		<context:include-filter type="assignable" expression="wiring.scan.Song"/>
+		<context:include-filter type="assignable" expression="wiring.scan.Instrument"/>
+		<context:exclude-filter type="assignable" expression="wiring.scan.Company"/>
+	</context:component-scan>
+	
+</beans>
+
+
+
+
+
+
+
+

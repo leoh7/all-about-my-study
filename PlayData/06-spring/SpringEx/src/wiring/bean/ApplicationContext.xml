@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">		
+	
+	<!-- factory method -->
+	<bean id="stage" class="wiring.bean.Stage" factory-method="getInstance"/>
+		
+	<!-- singleton / prototype -->	
+	<bean id="ticket" class="wiring.bean.Ticket"/>
+	
+	<!-- Bean Wiring -->
+	<!-- Juggler lee = new Juggler() 와 같다  / 객체 생성 -->
+	<!-- 나중에 Juggler 라는 클래스만 바꿔주면 그 클래스를 실행하게 되는 것 -->
+	<!-- <bean id="lee" class="wiring.bean.Juggler"/> -->
+
+
+	<!-- 생성자 Wiring -->
+	<!--
+	<bean id="picnic" class="wiring.bean.Picnic"/>
+	<bean id="flower" class="wiring.bean.Flower"/>
+	
+	<bean id="lee" class="wiring.bean.PoeticJuggler">
+		<constructor-arg value="5"/>
+		<constructor-arg ref="flower"/>
+	</bean>
+	-->
+	
+	<!-- property wiring -->	
+	<bean id="piano" class="wiring.bean.Piano"/>
+	<bean id="drum" class="wiring.bean.Drum"/>
+	<bean id="guitar" class="wiring.bean.Guitar"/>
+	
+<!-- <bean id="lee" class="wiring.bean.Instrumentalist">
+		<property name="song" value="곡 Hello"/>
+		<property name="instrument" ref="piano"/>
+	</bean> -->
+			<!-- 	
+			Piano piano = new Piano()
+			Instrumentalist lee = new Instrumentalist()
+			lee.setSong("  ");
+			// lee.setInstrument(piano);
+			lee.setInstrument( new piano() ); 
+			이런 방식처럼 내장으로 주입하여 쓸 수도 있음 ( 내부 빈 주입) 
+			<bean id="singer" class="wiring.bean.Singer">
+				<constructor-arg value="조용필"/>
+				<constructor-arg ref="hello"/>
+				<property name="instrument">
+					<bean class="wiring.bean.Piano"/>
+				</property>
+			</bean>
+			-->
+	
+	<!-- p namespace -->
+	<!-- 셋터를 쓸 때 대신 쓸 수 있다(constructor 대신엔 못 씀) -->
+	<!-- <bean id="lee" class="wiring.bean.Instrumentalist"
+		p:song="어머나" p:instrument-ref="guitar"/> -->
+		
+	<!-- Collection wiring list, set-->
+	<!-- 객체가 여러개의 데이터를 받아야 할 때 컬렉션을 쓸 수 있다 -->	
+<!-- 
+	<bean id="lee" class="wiring.bean.OneManBand">
+		<property name="song" value="hello"/>
+		<property name="instruments">
+			<list>
+				<ref bean="guitar"/>
+				<ref bean="drum"/>
+				<ref bean="piano"/>
+			</list>
+		</property>
+	</bean>
+-->
+
+	<!-- Collection wiring Map-->
+	<bean id="lee" class="wiring.bean.TwoManBand">
+		<property name="song" value="hello"/>
+		<property name="instruments">
+			<map>
+				<entry key="DRUM" value-ref="drum"/>
+				<entry key="PIANO" value-ref="piano"/>
+				<entry key="GUITAR" value-ref="guitar"/>
+			</map>
+		</property>
+	</bean>
+	
+
+	
+
+		
+		
+	<!-- 연습용 -->
+	<bean id="bounce" class="wiring.bean.Bounce"/>
+	<bean id="hello" class="wiring.bean.Hello"/>
+	
+	<bean id="singer" class="wiring.bean.Singer">
+		<constructor-arg value="조용필"/>
+		<constructor-arg ref="hello"/>
+		<property name="instrument" ref="drum"/>
+		<property name="songs">
+			<list>
+				<ref bean="hello"/>
+				<ref bean="bounce"/>
+			</list>
+		</property>
+		<property name="instruments">
+			<map>
+				<entry key="DRUM" value-ref="drum"/>
+				<entry key="PIANO" value-ref="piano"/>
+				<entry key="GUITAR" value-ref="guitar"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+

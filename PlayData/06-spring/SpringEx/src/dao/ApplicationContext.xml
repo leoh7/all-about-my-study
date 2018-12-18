@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-4.3.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd">		
+	
+	<context:component-scan base-package="dao"/>
+	
+	<!-- DataSource -->
+<!-- 	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="encore"/>
+		<property name="password" value="encore"/>
+	</bean> 
+-->
+	
+	<!-- Connection Pool DataSource -->	
+	<!-- => Java Bean으로 갈 것임
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="encore"/>
+		<property name="password" value="encore"/>
+		<property name="initialSize" value="10"/>
+		<property name="maxActive" value="10"/>
+		<property name="maxWait" value="3000"/>
+	</bean>
+	 -->
+	
+	<!-- Template -->
+		<!-- 템플릿이 데이터소스를 뭘 쓸건지를 정하진 못한다 -->
+		<!-- 데이터 소스 -> 템플릿 -> 우리 클래스 -> 템플릿이 처리 -->
+	<!-- 
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	 -->
+	 
+	<!-- DAO -->
+	<!-- 	
+	<bean id="userDao" class="dao.JDBCUserDao">
+		<property name="template" ref="template"/>
+	</bean>
+	 -->
+	
+	
+	<!-- JdbcDaoSupport => JavaBean으로 갈 것임 -->
+	<!-- 
+	<bean id="userDao" class="dao.JDBCUserDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean> 
+	-->
+</beans>
+
+
+
+
+
+
+
+
