@@ -1,3 +1,6 @@
 [submodule "study-es6"]
 	path = study-es6
-	url = https://github.com/leoh7/study-es6
+	url = https://github.com/leoh7/study-es6.git
+[submodule "study-react"]
+	path = study-react
+	url = https://github.com/leoh7/study-react.git
